@@ -30,6 +30,14 @@ client.user.setGame(`Beegin`,"http://twitch.tv/S-F")
 
 client.login(process.env.BOT_TOKEN);
 
+
+
+
+
+
+
+
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
