@@ -297,5 +297,3 @@ ${prefix}queue ⇏ لمعرفة قائمة التشغيل
    }
    }); 
    
-	client.login("NDY2MDAxNTQ4ODY3MTQxNjUz.DiVzow.3YtBXDAg0FSeOxrtOlR1Xfs2MnE");
-
