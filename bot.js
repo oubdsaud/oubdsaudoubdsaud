@@ -58,7 +58,9 @@ const queue = new Map();
 
 
 
-
+const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
+const ffmpeg = require('fluent-ffmpeg');
+ffmpeg.setFfmpegPath(ffmpegPath);
 
 
 
@@ -308,3 +310,5 @@ client.on("message", message => {
 		message.member.voiceChannel.join().then(message.react('✅'));
 	}
 });
+
+
