@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = 'Sa'
+const prefix = 'sa'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -39,8 +39,7 @@ client.on('message', msg => {
 });
 
 client.login(process.env.BOT_TOKEN);
-const Discord = require('discord.js');
-const client = new Discord.Client();
+
 
 
 
@@ -65,6 +64,7 @@ const queue = new Map();
 
 
 
+
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
 	//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
@@ -80,14 +80,14 @@ client.on('message', async msg => { // eslint-disable-line
 //by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 	if (command === `play`) {
 		const voiceChannel = msg.member.voiceChannel;
-		if (!voiceChannel) return msg.channel.send('يجب توآجد حضرتك بروم صوتي .');
+		if (!voiceChannel) return msg.channel.send('خش روم صوتي اول ي حب .');
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
 		if (!permissions.has('CONNECT')) {
 			//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-			return msg.channel.send('لا يتوآجد لدي صلاحية للتكلم بهذآ الروم');
+			return msg.channel.send('الروم هذا اكبر من صلاحياتي طال عمرك');
 		}//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 		if (!permissions.has('SPEAK')) {
-			return msg.channel.send('لا يتوآجد لدي صلاحية للتكلم بهذآ الروم');
+			return msg.channel.send('الروم هذا اكبر من صلاحياتي طال عمرك');
 		}//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 
 		if (!permissions.has('EMBED_LINKS')) {
@@ -102,7 +102,7 @@ client.on('message', async msg => { // eslint-disable-line
 				const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
 				await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
 			}//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-			return msg.channel.send(` **${playlist.title}** تم الإضآفة إلى قأئمة التشغيل`);
+			return msg.channel.send(` **${playlist.title}** ابشر من عينيا`);
 		} else {
 			try {//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 
@@ -112,10 +112,10 @@ client.on('message', async msg => { // eslint-disable-line
 					var videos = await youtube.searchVideos(searchString, 5);
 					let index = 0;
 					const embed1 = new Discord.RichEmbed()
-			        .setDescription(`**الرجآء من حضرتك إختيآر رقم المقطع** :
+			        .setDescription(`**اختار رقم ي عينيا واكتبه تحت** :
 ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 //by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-					.setFooter("! Roses.")
+					.setFooter("ي زينك بس وانت تقرأ")
 					msg.channel.sendEmbed(embed1).then(message =>{message.delete(20000)})
 					
 					// eslint-disable-next-line max-depth
@@ -127,32 +127,32 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 						});//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 					} catch (err) {
 						console.error(err);
-						return msg.channel.send('لم يتم إختيآر مقطع صوتي');
+						return msg.channel.send('لسى م شغلت حاجة ي عينيا انت');
 					}
 					const videoIndex = parseInt(response.first().content);
 					var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
 				} catch (err) {
 					console.error(err);
-					return msg.channel.send(':X: لا يتوفر نتآئج بحث ');
+					return msg.channel.send(':X: لا يتوفر نتائج بحث ');
 				}
 			}//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 
 			return handleVideo(video, msg, voiceChannel);
 		}//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 	} else if (command === `skip`) {
-		if (!msg.member.voiceChannel) return msg.channel.send('أنت لست بروم صوتي .');
-		if (!serverQueue) return msg.channel.send('لا يتوفر مقطع لتجآوزه');
-		serverQueue.connection.dispatcher.end('تم تجآوز هذآ المقطع');
+		if (!msg.member.voiceChannel) return msg.channel.send('شلون اخش ب روم وانت مو فيه ي عمري؟ .');
+		if (!serverQueue) return msg.channel.send('لسى م شغلت حاجة انت');
+		serverQueue.connection.dispatcher.end('لسى م شغلت حاجة انت');
 		return undefined;
 	} else if (command === `stop`) {//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-		if (!msg.member.voiceChannel) return msg.channel.send('أنت لست بروم صوتي .');
-		if (!serverQueue) return msg.channel.send('لا يتوفر مقطع لإيقآفه');
+		if (!msg.member.voiceChannel) return msg.channel.send('شلون اخش ب روم وانت مو فيه ي عمري؟ .');
+		if (!serverQueue) return msg.channel.send('للسى م شغلت حاجة انت');
 		serverQueue.songs = [];
-		serverQueue.connection.dispatcher.end('تم إيقآف هذآ المقطع');
+		serverQueue.connection.dispatcher.end('ابشر من عينيا');
 		return undefined;
 	} else if (command === `vol`) {
-		if (!msg.member.voiceChannel) return msg.channel.send('أنت لست بروم صوتي .');
-		if (!serverQueue) return msg.channel.send('لا يوجد شيء شغآل.');
+		if (!msg.member.voiceChannel) return msg.channel.send('شلون اخش ب روم وانت مو فيه ي عمري؟ .');
+		if (!serverQueue) return msg.channel.send('شغل شيء أول.');
 		if (!args[1]) return msg.channel.send(`:loud_sound: مستوى الصوت **${serverQueue.volume}**`);
 		serverQueue.volume = args[1];//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 50);
@@ -222,7 +222,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 		} catch (error) {
 			console.error(`I could not join the voice channel: ${error}`);
 			queue.delete(msg.guild.id);
-			return msg.channel.send(`لا أستطيع دخول هذآ الروم ${error}`);
+			return msg.channel.send(`الروم هذا اكبر من صلاحياتي طال عمرك ${error}`);
 		}
 	} else {//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 		serverQueue.songs.push(song);
@@ -269,7 +269,7 @@ if (message.content.startsWith(adminprefix + 'setgame')) {//by ,$ ReBeL ء , �
   if (message.content.startsWith(adminprefix + 'setname')) {
 client.user.setUsername(argresult).then
     message.channel.sendMessage(`**${argresult}** : تم تغيير أسم البوت إلى`)
-return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
+return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظار لمدة ساعتين . **");
 } else
   if (message.content.startsWith(adminprefix + 'setavatar')) {
 client.user.setAvatar(argresult);
@@ -287,14 +287,14 @@ client.on("message", message => {
   const embed = new Discord.RichEmbed() //by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
       .setColor("#000000")//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
       .setDescription(`
-${prefix}play ⇏ لتشغيل أغنية برآبط أو بأسم
-${prefix}skip ⇏ لتجآوز الأغنية الحآلية
+${prefix}play ⇏ لتشغيل أغنية برابط أو بأسم
+${prefix}skip ⇏ لتجاوز الأغنية الحآلية
 ${prefix}pause ⇏ إيقآف الأغنية مؤقتا
-${prefix}resume ⇏ لموآصلة الإغنية بعد إيقآفهآ مؤقتا
+${prefix}resume ⇏ لمواصلة الإغنية بعد إيقافها مؤقتا
 ${prefix}vol ⇏ لتغيير درجة الصوت 100 - 0
-${prefix}stop ⇏ لإخرآج البوت من الروم
-${prefix}np ⇏ لمعرفة الأغنية المشغلة حآليا
-${prefix}queue ⇏ لمعرفة قآئمة التشغيل
+${prefix}stop ⇏ لإخراج البوت من الروم
+${prefix}np ⇏ لمعرفة الأغنية المشغلة حاليا
+${prefix}queue ⇏ لمعرفة قائمة التشغيل
  `)//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
    message.channel.sendEmbed(embed)//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
     
