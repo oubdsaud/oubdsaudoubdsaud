@@ -33,8 +33,8 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  if (msg.content === 'love u') {
-    msg.reply('love u too');
+  if (msg.content === 'shit u') {
+    msg.reply('shut the fuck up');
   }
 });
 
