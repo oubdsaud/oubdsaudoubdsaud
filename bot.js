@@ -237,7 +237,6 @@ function play(guild, song) {
 	const serverQueue = queue.get(guild.id);
 
 	if (!song) {//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-		serverQueue.voiceChannel.leave();
 		queue.delete(guild.id);
 		return;//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 	}//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
@@ -254,6 +253,7 @@ function play(guild, song) {
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 
 	serverQueue.textChannel.send(`بدء تشغيل : **${song.title}**`);
+        serverQueue.connection.dispatcher.setVolumeLogarithmic
 }//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 
 const adminprefix = "1";//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
