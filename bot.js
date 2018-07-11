@@ -148,6 +148,7 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 		if (!msg.member.voiceChannel) return msg.channel.send('شلون اخش ب روم وانت مو فيه ي عمري؟ .');
 		if (!serverQueue) return msg.channel.send('للسى م شغلت حاجة انت');
 		serverQueue.songs = [];
+                serverQueue.voiceChannel.leave();
 		serverQueue.connection.dispatcher.end('ابشر من عينيا');
 		return undefined;
 	} else if (command === `vol`) {
