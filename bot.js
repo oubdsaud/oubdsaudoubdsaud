@@ -250,10 +250,8 @@ function play(guild, song) {
 			play(guild, serverQueue.songs[0]);
 		})//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 		.on('error', error => console.error(error));//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-
 	serverQueue.textChannel.send(`بدء تشغيل : **${song.title}**`);
-        serverQueue.connection.dispatcher.setVolumeLogarithmic
+        serverQueue.connection.dispatcher.setVolumeLogarithmic(25 / 50)
 }//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 
 const adminprefix = "1";//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
